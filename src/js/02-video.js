@@ -8,9 +8,10 @@ function saveData(data) {
   console.log(data);
   localStorage.setItem("videoplayer-current-time", data.seconds);
 }
-player.on("play", data => {
-  const savedTime = localStorage.getItem("videoplayer-current-time");
-  if (data.seconds !== savedTime && savedTime) {
-    player.setCurrentTime(savedTime);
-  }
-});
+// player.on("play", data => {
+//   const savedTime = localStorage.getItem("videoplayer-current-time");
+//   if (data.seconds !== savedTime && savedTime) {
+//     player.setCurrentTime(savedTime);
+//   }
+// });
+player.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0);
